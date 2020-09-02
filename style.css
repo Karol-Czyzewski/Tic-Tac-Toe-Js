@@ -28,10 +28,42 @@
   border: 2px solid #1839e0;
   margin: 0;
   transition: all 0.2s linear;
+  position: relative;
 }
 
 .playground__item:hover {
   background-color: #7084e9;
+}
+
+.playground__item--field-X::before,
+.playground__item--field-X::after {
+  background-color: red;
+  content: "";
+  height: 5px;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+}
+
+.playground__item--field-X::before {
+  transform: translate(-50%) rotate(-45deg);
+}
+
+.playground__item--field-X::after {
+  transform: translate(-50%) rotate(45deg);
+}
+
+.playground__item--field-O::before {
+  border: 5px solid green;
+  border-radius: 50%;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 70px;
 }
 
 .playground__button {
