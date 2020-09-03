@@ -1,6 +1,7 @@
 .body {
   margin: 0;
   background-color: #fbfbff;
+  font-size: 20px;
 }
 
 .main {
@@ -9,6 +10,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.panel {
+}
+
+.panel__paragraph {
+  font-size: 24px;
+  height: 50px;
 }
 
 .playground {
