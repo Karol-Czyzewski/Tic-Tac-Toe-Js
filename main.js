@@ -31,7 +31,12 @@ const displayWinMessage = () => {
   panel.innerText = `Gratulacje ${activePlayer}, wygrałeś!`;
 };
 
+const displayTieMessage = () => {
+  panel.innerText = "Remis!";
+};
+
 const validateGame = () => {
+  let gameWon = false;
   for (let i = 0; i <= 7; i++) {
     const [posA, posB, posC] = winingConditions[i];
     const value1 = fields[posA];
@@ -39,24 +44,30 @@ const validateGame = () => {
     const value3 = fields[posC];
 
     if (value1 !== "" && value1 === value2 && value1 === value3) {
-      gameActive = false;
-      displayWinMessage();
+      gameWon = true;
+      break;
     }
+  }
+  if (gameWon) {
+    gameActive = false;
+    displayWinMessage();
+  }
+};
+
+const handleItemClick = (e) => {
+  const { pos } = e.target.dataset;
+
+  if (gameActive && fields[pos] === "") {
+    fields[pos] = activePlayer;
+
+    e.target.classList.add(`playground__item--field-${activePlayer}`);
+    validateGame();
+    activePlayer = activePlayer === "X" ? "O" : "X";
   }
 };
 
 items.forEach((item) => {
-  item.addEventListener("click", (e) => {
-    const { pos } = e.target.dataset;
-
-    if (gameActive && fields[pos] === "") {
-      fields[pos] = activePlayer;
-
-      e.target.classList.add(`playground__item--field-${activePlayer}`);
-      validateGame();
-      activePlayer = activePlayer === "X" ? "O" : "X";
-    }
-  });
+  item.addEventListener("click", handleItemClick);
 });
 
 const clearMessage = () => {
