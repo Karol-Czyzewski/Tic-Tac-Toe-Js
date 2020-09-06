@@ -1,0 +1,23 @@
+{
+  "name": "tic-tac-toe-js",
+  "version": "1.0.0",
+  "description": "\"# Tic-Tac-Toe-Js\"",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "npx node-sass -w src/scss/style.scss style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Karol-Czyzewski/Tic-Tac-Toe-Js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Karol-Czyzewski/Tic-Tac-Toe-Js/issues"
+  },
+  "homepage": "https://github.com/Karol-Czyzewski/Tic-Tac-Toe-Js#readme",
+  "devDependencies": {
+    "node-sass": "^4.14.1"
+  }
+}

@@ -1,7 +1,18 @@
+@mixin displayX {
+  background-color: red;
+  content: "";
+  height: 5px;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+}
+
 .body {
   margin: 0;
   background-color: #fbfbff;
-  font-size: 20px; }
+  font-size: 20px;
+}
 
 .main {
   background-color: rgba(255, 255, 0, 0.267);
@@ -9,11 +20,15 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+}
 
-.panel__paragraph {
-  font-size: 24px;
-  height: 50px; }
+.panel {
+  &__paragraph {
+    font-size: 24px;
+    height: 50px;
+  }
+}
 
 .playground {
   border: 2px solid #1839e0;
@@ -23,36 +38,27 @@
   grid-template-rows: 100px 100px 100px;
   grid-template-columns: 100px 100px 100px;
   grid-row-gap: 10px;
-  grid-column-gap: 10px; }
-  .playground__item {
+  grid-column-gap: 10px;
+  &__item {
     background-color: #4158d0;
     border-radius: 5px;
     border: 2px solid #1839e0;
     cursor: pointer;
     margin: 0;
     transition: all 0.2s linear;
-    position: relative; }
-    .playground__item:hover {
-      background-color: #7084e9; }
-    .playground__item--field-X::before {
+    position: relative;
+    &:hover {
+      background-color: #7084e9;
+    }
+    &--field-X::before {
       transform: translate(-50%) rotate(-45deg);
-      background-color: red;
-      content: "";
-      height: 5px;
-      width: 100%;
-      top: 50%;
-      left: 50%;
-      position: absolute; }
-    .playground__item--field-X::after {
+      @include displayX;
+    }
+    &--field-X::after {
       transform: translate(-50%) rotate(45deg);
-      background-color: red;
-      content: "";
-      height: 5px;
-      width: 100%;
-      top: 50%;
-      left: 50%;
-      position: absolute; }
-    .playground__item--field-O::before {
+      @include displayX;
+    }
+    &--field-O::before {
       border: 5px solid green;
       border-radius: 50%;
       content: "";
@@ -61,15 +67,20 @@
       left: 50%;
       transform: translate(-50%, -50%);
       width: 70px;
-      height: 70px; }
-  .playground__button {
+      height: 70px;
+    }
+  }
+  &__button {
     background-color: #4158d0;
     border: none;
     border-radius: 5px;
     color: white;
     margin: 24px;
     padding: 12px;
-    transition: all 0.2s linear; }
-    .playground__button:hover {
+    transition: all 0.2s linear;
+    &:hover {
       background-color: #7084e9;
-      cursor: pointer; }
+      cursor: pointer;
+    }
+  }
+}
