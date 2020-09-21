@@ -28,7 +28,7 @@ const winingConditions = [
 ];
 
 const displayWinMessage = () => {
-  panel.innerText = `Gratulacje ${activePlayer}, wygrałeś!`;
+  panel.innerText = `Congratulations ${activePlayer}, you won!`;
 };
 
 const displayTieMessage = () => {
